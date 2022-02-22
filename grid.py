@@ -1,0 +1,30 @@
+def draw_firstGrid(WIN, DEFAULT):
+    WIN.blit(DEFAULT, (505, 200))
+    WIN.blit(DEFAULT, (560, 200))
+    WIN.blit(DEFAULT, (615, 200))
+    WIN.blit(DEFAULT, (670, 200))
+    WIN.blit(DEFAULT, (725, 200))
+
+    WIN.blit(DEFAULT, (505, 255))
+    WIN.blit(DEFAULT, (560, 255))
+    WIN.blit(DEFAULT, (615, 255))
+    WIN.blit(DEFAULT, (670, 255))
+    WIN.blit(DEFAULT, (725, 255))
+
+    WIN.blit(DEFAULT, (505, 310))
+    WIN.blit(DEFAULT, (560, 310))
+    WIN.blit(DEFAULT, (615, 310))
+    WIN.blit(DEFAULT, (670, 310))
+    WIN.blit(DEFAULT, (725, 310))
+
+    WIN.blit(DEFAULT, (505, 365))
+    WIN.blit(DEFAULT, (560, 365))
+    WIN.blit(DEFAULT, (615, 365))
+    WIN.blit(DEFAULT, (670, 365))
+    WIN.blit(DEFAULT, (725, 365))
+
+    WIN.blit(DEFAULT, (505, 420))
+    WIN.blit(DEFAULT, (560, 420))
+    WIN.blit(DEFAULT, (615, 420))
+    WIN.blit(DEFAULT, (670, 420))
+    WIN.blit(DEFAULT, (725, 420))
