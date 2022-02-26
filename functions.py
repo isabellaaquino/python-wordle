@@ -5,10 +5,10 @@ def split(word):
 
 
 def chooseWord():
-    answer = str(input('Choose a word up to five letters'))
+    answer = str(input('Choose a word of five letters'))
     while len(answer) != 5:
-        print("The word has to be five letters.")
-        answer = str(input('Choose a word up to five letters'))
+        print("The word has to be five lettered.")
+        answer = str(input('Choose a word of five letters'))
 
     return answer
 
@@ -16,7 +16,7 @@ def chooseWord():
 def attempt(answer):
     attempt = word.Word(str(input('Try a word')))
     while len(attempt.word) != 5:
-        print("The word has to be five letters.")
+        print("The word has to be five lettered.")
         attempt = word.Word(str(input('Try a word')))
 
     if attempt == answer:
@@ -30,18 +30,18 @@ def updateColors(attempt: word.Word, answer: str):
     characters = split(attempt.word)
 
     for index in range(5):
-        letra_atual = characters[index]
-        letra_atual_resposta = answerCharacters[index]
+        currentAttemptLetter = characters[index]
+        currentAnswerLetter = answerCharacters[index]
         
-        if letra_atual == letra_atual_resposta:
-            if not attempt.firstLetterAlreadyColored(word.capitalize(letra_atual)) :
+        if currentAttemptLetter == currentAnswerLetter:
+            if not attempt.firstLetterAlreadyColored(word.capitalize(currentAttemptLetter)) :
                 attempt.setColor(index, 'GREEN')
 
-        elif letra_atual in answerCharacters:
-            if answer.count(letra_atual) >= attempt.word.count(letra_atual):
+        elif currentAttemptLetter in answerCharacters:
+            if answer.count(currentAttemptLetter) >= attempt.word.count(currentAttemptLetter):
                 attempt.setColor(index, 'YELLOW')
             else:
-                if not attempt.firstLetterAlreadyColored(word.capitalize(letra_atual)):
+                if not attempt.firstLetterAlreadyColored(word.capitalize(currentAttemptLetter)):
                     attempt.setColor(index, 'YELLOW')
 
     return attempt.printWord()
@@ -51,7 +51,8 @@ def round():
     answer = chooseWord()
     for round in range(6):
         if attempt(answer):
+            print("You won!")
             break
-        if round == 5:
-            print("You lost")
+        elif round == 5:
+            print("You lost :'(")
 round()
