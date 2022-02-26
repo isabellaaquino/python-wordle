@@ -1,7 +1,7 @@
 class Letter:
     def __init__(self, color, letter):
-       self.color = color
        self.letter = letter
+       self.color = color
     
     def __repr__(self):
         return '{} - {}'.format(self.letter, self.color)
@@ -10,22 +10,19 @@ class Letter:
 class Word:
     def __init__(self, word):
         self.word = word
-        self.greens = 0
         self.letters = [Letter('GREY', capitalize(character)) for character in split(word)]
 
-    def setColor(self, letter, color):
-        for letters in self.letters:
-            if letters.letter == letter:
-                letters.color = color
+    def setColor(self, index: int, color: str):
+        self.letters[index].color = color
+
+    def firstLetterAlreadyColored(self, current_letter):
+        for letter in self.letters:
+            if letter.letter == current_letter:
+                if letter.color != 'GREY':
+                    return True
 
     def printWord(self):
         return print(self.letters)
-
-    def allGreen(self):
-        if self.greens == 5:
-            return True
-        else:
-            return False
 
 
 def capitalize(character: str):
