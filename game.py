@@ -20,8 +20,9 @@ def isRandomWord():
     options = ['1', '2']
     choice = str(input("Do you want a random word or type one?\n1) Random\n2) Type\n"))
     
-    if choice not in options:
+    while choice not in options:
         choice = str(input("Input error! You have to choose between:\n1) Random\n2) Type\n"))
+
 
     if choice == '1':
         return True
@@ -36,13 +37,15 @@ def getWordListByLanguage(choice: languageChoice):
         words = file.readlines()
         for word in words:
             word_list.append(word[:5])
+
     return word_list
 
 
 def chooseLanguage():
     options = ['1', '2']
     choice = str(input("Choose what language you want the words to be:\n1) English\n2) Portuguese\n"))
-    if choice not in options:
+    
+    while choice not in options:
         choice = str(input("Input error! You have to choose between:\n1) English\n2) Portuguese\n"))
 
     if choice == '1':
