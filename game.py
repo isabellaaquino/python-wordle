@@ -1,6 +1,10 @@
 from word import Word, colors, capitalize
 import getpass
 import random
+import os
+
+# System call
+os.system("")
 
 class languageChoice:
     PORTUGUES = 'src/words/portuguese_words.txt'
@@ -106,6 +110,18 @@ def updateColors(attempt: Word, answer: str):
                     else:
                         attempt.setColor(index, colors.YELLOW)
 
+def keepPlaying():
+    options = ['1', '2']
+    choice = str(input("Do you want to keep playing?\n1) Yes\n2) No\n"))
+    
+    while choice not in options:
+        choice = str(input("Input error! Do you want to keep playing?\n1) Yes\n2) No\n"))
+
+    if choice == '1':
+        return True
+    else:
+        return False
+
 
 
 def round():
@@ -127,5 +143,7 @@ def round():
             print("\nThe word was: " + colors.GREEN + "{}".format(answer.upper()) + colors.GREEN)
 
 
-if __name__ == '__main__':
+while True:
     round()
+    if not keepPlaying():
+        break
