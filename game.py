@@ -67,7 +67,7 @@ def chooseWord(word_list: list):
     return answer
 
 
-def attempt(answer, attempts: list[Word], word_list: list):
+def attempt(answer, attempts: list, word_list: list):
     attempt = Word(str(input('\nTry a word ')))
     while len(attempt.word) != 5 or attempt.word not in word_list:
         print("That's not a possible word!")
