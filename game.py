@@ -6,6 +6,9 @@ import os
 # System call
 os.system("")
 
+# Globals
+options = ['1', '2']
+
 class languageChoice:
     PORTUGUES = 'src/words/portuguese_words.txt'
     ENGLISH = 'src/words/english_words.txt'
@@ -21,7 +24,6 @@ def randomWord(word_list):
 
 
 def isRandomWord():
-    options = ['1', '2']
     choice = str(input("Do you want a random word or type one?\n1) Random\n2) Type\n"))
     
     while choice not in options:
@@ -46,7 +48,6 @@ def getWordListByLanguage(choice: languageChoice):
 
 
 def chooseLanguage():
-    options = ['1', '2']
     choice = str(input("Choose what language you want the words to be:\n1) English\n2) Portuguese\n"))
     
     while choice not in options:
@@ -60,8 +61,12 @@ def chooseLanguage():
 
 def chooseWord(word_list: list):
     answer = str(getpass.getpass('Choose a word of five letters ')) # When typing a word, it won't show on the terminal
-    while answer not in word_list or len(answer) != 5:
+    while answer not in word_list:
         print("That's not a possible word!")
+        answer = str(getpass.getpass('Choose a word of five letters '))
+
+    while len(answer) != 5:
+        print("Not enough letters!")
         answer = str(getpass.getpass('Choose a word of five letters '))
 
     return answer
@@ -69,8 +74,12 @@ def chooseWord(word_list: list):
 
 def attempt(answer, attempts: list[Word], word_list: list):
     attempt = Word(str(input('\nTry a word ')))
-    while len(attempt.word) != 5 or attempt.word not in word_list:
+    while attempt.word not in word_list:
         print("That's not a possible word!")
+        attempt = Word(str(input('\nTry a word ')))
+
+    while len(attempt.word) != 5:
+        print("Not enough letters!")
         attempt = Word(str(input('\nTry a word ')))
     attempts.append(attempt)
     
@@ -111,7 +120,6 @@ def updateColors(attempt: Word, answer: str):
                         attempt.setColor(index, colors.YELLOW)
 
 def keepPlaying():
-    options = ['1', '2']
     choice = str(input("Do you want to keep playing?\n1) Yes\n2) No\n"))
     
     while choice not in options:
