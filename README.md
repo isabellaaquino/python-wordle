@@ -1,6 +1,7 @@
 # python-wordle
 A python version of the new worldwide-famous word game called Wordle.  
 ---
+![35d71f3d-bce9-4e52-b6c7-1a9f335dc868](https://github.com/isabellaaquino/python-wordle/assets/76221367/984acdb2-92f1-4b35-9100-5bbf96c5254b)
 
 To **run** this game you just need to run the file `game.py`!  
 
